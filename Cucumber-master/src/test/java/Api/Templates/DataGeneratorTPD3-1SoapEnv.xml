@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoapenv.org/soapenv/envelope/"
+                  xmlns:auth="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/auth/"
+                  xmlns:epcis="urn:epcglobal:epcis:xsd:1"
+                  xmlns:stan="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+                  xmlns:tpd="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/tpd-extension/"
+                  xmlns:cds="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/cds/">
+
+   <ns6:EPCISDocument creationDate="2020-${Month}-${Day}T${Hours}:${Mins}:00.240Z"
+                      xmlns:ns6="urn:epcglobal:epcis:xsd:1"
+                      xmlns:ns5="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/capture/"
+                      xmlns:ns8="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/auth/"
+                      xmlns:ns7="urn:epcglobal:epcis-masterdata:xsd:1"
+                      xmlns:ns2="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+                      xmlns:ns4="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/cds/"
+                      xmlns:ns3="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/tpd-extension/">
+   </ns6:EPCISDocument>
+   <soapenv:Header>
+      <auth:username>@integration.fl@itg.com</auth:username>
+      <auth:password>123456</auth:password>
+   </soapenv:Header>
+
+   <soapenv:Body>                      <!--"2020   05      29T06   18       10.650Z-->
+      <epcis:EPCISDocument creationDate="2020-${Month}-${Day}T${Hours}:${Mins}:00.240Z" schemaVersion="1.2">
+         <EPCISBody>
+            <EventList>
+               <ObjectEvent>;
+                  <eventTime>2020-${Month}-${Day}T${Hours}:${Mins}:00.240Z</eventTime>
+                  <eventTimeZoneOffset>+01:00</eventTimeZoneOffset>
+                  <epcList>
+                     <epc>urn:itg:id:upuil:VZUAE${Day}${Month}${Year}${Hours}${Mins}v132002242055</epc>
+                  </epcList>
+                  <action>ADD</action>
+                  <bizStep>urn:epcglobal:cbv:bizstep:commissioning</bizStep>
+                  <disposition>urn:epcglobal:cbv:disp:active</disposition>
+                  <readPoint>
+                     <id>urn:itg:id:loc:970.CEL</id>
+                  </readPoint>
+                  <bizLocation>
+                     <id>urn:itg:id:loc:970</id>
+                  </bizLocation>
+                  <bizTransactionList>
+                     <bizTransaction type="urn:itg:field:cds:message_id">${Day}${Month}${Year}-${Hours}${Mins}</bizTransaction>
+                     <bizTransaction type="urn:itg:field:cds:transaction_id">${Day}${Month}${Hours}-${Mins}${Year}</bizTransaction>
+                     <bizTransaction type="urn:itg:field:cds:LSKU">2176024</bizTransaction>
+                     <bizTransaction type="urn:itg:field:cds:RSKU">2176024</bizTransaction>
+                     <bizTransaction type="urn:itg:field:cds:Batch_Number">R3010XC9</bizTransaction>
+                     <bizTransaction type="urn:itg:field:tpd:EO_ID">KPL10000cDC</bizTransaction>
+                     <bizTransaction type="urn:itg:field:tpd:TP_ID">KPL10000cDC</bizTransaction>
+                     <bizTransaction type="urn:itg:field:tpd:TP_PN">2176024</bizTransaction>
+                  </bizTransactionList>
+                  <tpd:Message_Type>3-1</tpd:Message_Type>
+                  <cds:packagingLevelType>10</cds:packagingLevelType>
+                  <upUI_2 xmlns="http://prod.itg.plus.movilizer.cloud/misl/schemas/v1.0/tpd-extension/">
+                     <epc xmlns="">urn:itg:id:upuis:VZUAE${Day}${Month}${Year}${Hours}${Mins}</epc>
+                  </upUI_2>
+               </ObjectEvent>
+            </EventList>
+         </EPCISBody>
+      </epcis:EPCISDocument>
+   </soapenv:Body>
+</soapenv:Envelope>
